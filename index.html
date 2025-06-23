@@ -1,267 +1,716 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TV5KD5CLSM"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TV5KD5CLSM');
-  </script>
-  <title>Web 航海</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'SF Pro Display', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
-      background: linear-gradient(135deg, #f8fafc 0%, #e9e9eb 100%);
-      color: #1d1d1f;
-      min-height: 100vh;
-    }
-    .container {
-      max-width: 900px;
-      margin: 48px auto 32px auto;
-      background: rgba(255,255,255,0.95);
-      border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 1.5px 4px rgba(0,0,0,0.03);
-      padding: 40px 32px 32px 32px;
-      backdrop-filter: blur(2px);
-    }
-    h1 {
-      font-weight: 700;
-      font-size: 2.6rem;
-      margin-bottom: 36px;
-      letter-spacing: 1.5px;
-      text-align: center;
-      color: #111;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      background: linear-gradient(90deg, #e3f0ff 60%, #dbeafe 100%);
-      border-radius: 14px;
-      padding: 18px 0 14px 0;
-      box-shadow: 0 2px 8px rgba(0,113,227,0.06);
-      margin-top: 0;
-    }
-    .group {
-      margin-bottom: 40px;
-    }
-    .group-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #0071e3;
-      margin-bottom: 18px;
-      border-left: 5px solid #0071e3;
-      padding-left: 14px;
-      background: linear-gradient(90deg, #f0f4fa 60%, rgba(0,113,227,0.06) 100%);
-      border-radius: 8px 0 0 8px;
-      box-shadow: 0 1px 4px rgba(0,113,227,0.04);
-    }
-    ul.links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px 28px;
-    }
-    ul.links li {
-      flex: 1 1 140px;
-      min-width: 100px;
-      background: #f7fafd;
-      border-radius: 12px;
-      padding: 8px 10px 6px 10px;
-      box-shadow: 0 2px 8px rgba(0,113,227,0.05), 0 1px 2px rgba(0,0,0,0.01);
-      transition: box-shadow 0.22s, transform 0.15s, background 0.15s;
-      display: flex;
-      align-items: center;
-      min-height: 32px;
-      position: relative;
-      overflow: hidden;
-      font-size: 0.98rem;
-    }
-    ul.links li::before {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0; top: 0; right: 0; bottom: 0;
-      background: linear-gradient(120deg, #e3f0ff 0%, #f7fafd 100%);
-      opacity: 0;
-      transition: opacity 0.2s;
-      z-index: 0;
-    }
-    ul.links li:hover {
-      box-shadow: 0 6px 24px rgba(0,113,227,0.13), 0 2px 8px rgba(0,0,0,0.04);
-      background: #e3f0ff;
-      transform: translateY(-2px) scale(1.025);
-    }
-    ul.links li:hover::before {
-      opacity: 0.18;
-    }
-    a {
-      color: #0071e3;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.08rem;
-      word-break: break-all;
-      z-index: 1;
-      position: relative;
-      transition: color 0.18s;
-    }
-    a:hover {
-      text-decoration: underline;
-      color: #005bb5;
-    }
-    @media (max-width: 700px) {
-      .container {
-        padding: 8px 1vw;
-      }
-      h1 {
-        font-size: 1.2rem;
-        margin-bottom: 14px;
-      }
-      .group-title {
-        font-size: 0.98rem;
-        padding-left: 6px;
-      }
-      ul.links li {
-        min-width: 80px;
-        padding: 6px 4px 4px 6px;
-        font-size: 0.92rem;
-      }
-    }
-    .search-box {
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto 32px auto;
-      display: flex;
-      align-items: center;
-      background: #f5f5f7;
-      border-radius: 12px;
-      box-shadow: 0 1px 4px rgba(0,113,227,0.04);
-      padding: 8px 16px;
-      border: 1.5px solid #e0e0e5;
-      transition: border 0.2s;
-    }
-    .search-box:focus-within {
-      border: 1.5px solid #0071e3;
-    }
-    .search-input {
-      flex: 1;
-      border: none;
-      background: transparent;
-      font-size: 1.08rem;
-      outline: none;
-      color: #1d1d1f;
-      font-family: inherit;
-      padding: 4px 0;
-    }
-    .search-icon {
-      color: #86868b;
-      margin-right: 8px;
-      font-size: 1.2rem;
-    }
-    @media (max-width: 700px) {
-      .search-box {
-        max-width: 98vw;
-        margin-bottom: 16px;
-        padding: 6px 8px;
-      }
-      .search-input {
-        font-size: 0.98rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web航海导航 - 专业互联网资源导航服务，包含域名查询、建站工具、SEO优化和竞品分析等必备资源">
+    <meta name="keywords" content="Web导航,SEO工具,建站资源,域名查询,竞品分析">
+    <title>Web航海导航 | 专业互联网资源导航</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFRF8MTHGL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NFRF8MTHGL');
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --text: #343a40;
+            --border: rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            font-size: 17px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .search-bar {
+            display: flex;
+            margin-left: 20px;
+            flex: 1;
+            max-width: 400px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            background: var(--light-gray);
+            border: 1px solid var(--border);
+            border-radius: 4px 0 0 4px;
+            color: var(--text);
+            font-size: 15px;
+        }
+        
+        .search-bar button {
+            padding: 0 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar button:hover {
+            background: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 40px 0 20px; /* 减少上下间距 */
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 10px; /* 减少间距 */
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* 顶部海洋波浪装饰 */
+        .waves-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-image: 
+                radial-gradient(circle at 50% 50%, var(--light-gray) 20%, transparent 30%),
+                radial-gradient(circle at 40% 50%, var(--light-gray) 15%, transparent 20%),
+                radial-gradient(circle at 60% 50%, var(--light-gray) 15%, transparent 20%);
+            background-size: 80px 80px;
+            background-repeat: repeat-x;
+            opacity: 0.7;
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 20px 0 60px; /* 减少顶部间距 */
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px; /* 减少间距 */
+            position: relative;
+            color: var(--primary);
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            margin: 10px auto 0; /* 减少间距 */
+            border-radius: 2px;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px; /* 减少间距 */
+        }
+        
+        .tab {
+            background: var(--light-gray);
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+        
+        .tab.active, .tab:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 20px; /* 减少间距 */
+        }
+        
+        .resource-card {
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.1);
+        }
+        
+        .card-header {
+            padding: 15px 20px;
+            background: var(--light-gray);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-icon i {
+            font-size: 20px;
+            color: white;
+        }
+        
+        .card-header h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .card-body {
+            padding: 15px 20px;
+            flex-grow: 1;
+        }
+        
+        .resource-list {
+            list-style: none;
+        }
+        
+        .resource-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .resource-list a {
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            padding: 5px 8px;
+            border-radius: 5px;
+        }
+        
+        .resource-list a:hover {
+            background: rgba(67, 97, 238, 0.05);
+            text-decoration: none;
+        }
+        
+        .resource-list a i {
+            color: var(--primary);
+            font-size: 14px;
+        }
+        
+        .external-icon {
+            color: var(--dark-gray);
+            font-size: 14px;
+            opacity: 0.6;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--light-gray);
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            padding: 6px 0;
+        }
+        
+        .footer-links a {
+            color: var(--dark-gray);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            color: var(--primary);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* 底部波浪装饰 */
+        .waves-bottom {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-image: 
+                radial-gradient(circle at 50% 0, var(--light-gray) 20%, transparent 30%),
+                radial-gradient(circle at 40% 0, var(--light-gray) 15%, transparent 20%),
+                radial-gradient(circle at 60% 0, var(--light-gray) 15%, transparent 20%);
+            background-size: 80px 80px;
+            background-repeat: repeat-x;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-bar {
+                max-width: 100%;
+                width: 100%;
+                margin: 10px 0 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .category-tabs {
+                gap: 10px;
+            }
+            
+            .tab {
+                padding: 6px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1 style="margin-bottom: 0;">
-      Web 航海
-      <div style="font-weight:400;font-size:1.08rem;color:#555;letter-spacing:0.2px;margin-top:10px;">收集了实用的开发、SEO、需求调研和独立开发相关资源</div>
-    </h1>
-    <div class="search-box">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" type="text" placeholder="搜索网站或分组..." oninput="filterLinks()" id="searchInput">
-    </div>
-    <!-- 分组内容开始 -->
-    <div class="group">
-      <div class="group-title">需求收集和关键词调研</div>
-      <ul class="links">
-        <li><a href="https://searchsuggest.tips/?Keyword=" target="_blank">谷歌相关搜索词</a></li>
-        <li><a href="https://www.toolify.ai/Best-AI-Tools-revenue" target="_blank">toolify榜单</a></li>
-        <li><a href="https://theresanaiforthat.com/requests" target="_blank">AI导航需求列表</a></li>
-        <li><a href="https://ahrefs.com/keyword-difficulty" target="_blank">关键词难度</a></li>
-      </ul>
-    </div>
-    <div class="group">
-      <div class="group-title">域名收集</div>
-      <ul class="links">
-        <li><a href="https://leandomainsearch.com/" target="_blank">域名查询1</a></li>
-        <li><a href="https://query.domains/zh-hans" target="_blank">域名查询2</a></li>
-        <li><a href="https://instantdomainsearch.com/?q=" target="_blank">域名查询3</a></li>
-        <li><a href="https://www.spaceship.com/" target="_blank">域名注册1</a></li>
-        <li><a href="https://porkbun.com/" target="_blank">域名注册2</a></li>
-        <li><a href="https://www.namecheap.com/" target="_blank">域名注册3</a></li>
-        <li><a href="https://zh.godaddy.com/" target="_blank">域名注册4</a></li>
-        <li><a href="https://www.cloudflare.com/" target="_blank">域名注册5</a></li>
-      </ul>
-    </div>
-    <div class="group">
-      <div class="group-title">上线准备</div>
-      <ul class="links">
-        <li><a href="https://vercel.com/" target="_blank">代码托管与部署1</a></li>
-        <li><a href="https://search.google.com/search-console/welcome" target="_blank">数据后台1</a></li>
-        <li><a href="https://analytics.google.com/analytics/web/#/" target="_blank">数据后台2</a></li>
-        <li><a href="https://www.bing.com/webmasters/about" target="_blank">数据后台3</a></li>
-        <li><a href="https://aitdk.com/" target="_blank">查看流量和网页关键词</a></li>
-        <li><a href="https://ahrefs.com/free-seo-tools" target="_blank">查看SEO难度</a></li>
-        <li><a href="https://semrush.com/" target="_blank">查看网站关键词</a></li>
-      </ul>
-    </div>
-    <div class="group">
-      <div class="group-title">竞品调研</div>
-      <ul class="links">
-        <li><a href="https://github.com/openRin/Rin" target="_blank">Dynamic blog basedon Cloudflare Pages + Workers + D1 + R2</a></li>
-        <li><a href="https://github.com/ixartz/Next-js-Boilerplate" target="_blank">Boilerplate and Starterfor Next.js 15 with AppRouter and Page Routersupport</a></li>
-      </ul>
-    </div>
-    <div class="group">
-      <div class="group-title">资讯部分</div>
-      <ul class="links">
-        <li><a href="https://liberating-doll-b8a.notion.site/Reddit-1a8e8aed91b18021839ecba8b74e530b" target="_blank">Reddit 子社区</a></li>
-        <li><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=zh-cn" target="_blank">谷歌搜索中心：SEO 基础知识</a></li>
-        <li><a href="https://ahrefs.com/website#trending" target="_blank">Top Trending Websitesfrom Ahrefs</a></li>
-        <li><a href="https://docs.google.com/spreadsheets/d/1Q0dq9KD1qiI7Ol43vclpir2rnE8NUxTDAtrOCn2k/edit?gid=0#gid=0" target="_blank">AI VIDEO SAAS TOOL</a></li>
-        <li><a href="https://docs.google.com/spreadsheets/d/1eUmi44pIURML2WVFFKzNwm-WKua..." target="_blank">Starter Story PremiumSolopreneur Report 2.0</a></li>
-        <li><a href="https://www.500mr.com/" target="_blank">Those making$500/month on sideprojects in 20xx</a></li>
-        <li><a href="https://news.ycombinator.com/item?id=42373343" target="_blank">Ask HN: Those making$500/month on sideprojects in 2024-Showand tell</a></li>
-      </ul>
-    </div>
-    <!-- 分组内容结束 -->
-  </div>
-  <script>
-    function filterLinks() {
-      const input = document.getElementById('searchInput').value.trim().toLowerCase();
-      const groups = document.querySelectorAll('.group');
-      groups.forEach(group => {
-        let groupTitle = group.querySelector('.group-title').textContent.toLowerCase();
-        let hasVisible = false;
-        group.querySelectorAll('li').forEach(li => {
-          const linkText = li.textContent.toLowerCase();
-          if (input === '' || linkText.includes(input) || groupTitle.includes(input)) {
-            li.style.display = '';
-            hasVisible = true;
-          } else {
-            li.style.display = 'none';
-          }
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-ship"></i>
+                    <span>Web航海导航</span>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#demand">需求分析</a>
+                    <a href="#setup">建站资源</a>
+                    <a href="#competitive">竞品分析</a>
+                    <a href="#templates">网站模板</a>
+                    <a href="#info">趋势资讯</a>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="搜索资源或工具...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="waves-top"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Web航海导航</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">资源导航</h2>
+            
+            <div class="category-tabs">
+                <div class="tab active">需求分析</div>
+                <div class="tab">建站资源</div>
+                <div class="tab">数据分析</div>
+                <div class="tab">网站模板</div>
+                <div class="tab">趋势资讯</div>
+            </div>
+            
+            <div class="resources-grid">
+                <!-- Category 1: Demand Analysis -->
+                <div class="resource-card">
+                    <div class="card-header">
+                        <div class="category-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>需求分析工具</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="resource-list">
+                            <li><a href="https://www.searchsuggest.tips/?keyword=" target="_blank"><i class="fas fa-external-link-alt"></i>谷歌下拉词</a></li>
+                            <li><a href="https://www.toolify.ai/Best-AI-Tools-revenue" target="_blank"><i class="fas fa-external-link-alt"></i>Toolify榜单</a></li>
+                            <li><a href="https://theresanaiforthat.com/requests" target="_blank"><i class="fas fa-external-link-alt"></i>AI需求列表</a></li>
+                            <li><a href="https://ahrefs.com/keyword-difficulty" target="_blank"><i class="fas fa-external-link-alt"></i>关键词难度分析</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Category 2: Setup Resources -->
+                <div class="resource-card">
+                    <div class="card-header">
+                        <div class="category-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>建站资源</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="resource-list">
+                            <li><a href="https://leandomainsearch.com/" target="_blank"><i class="fas fa-external-link-alt"></i>域名查询1</a></li>
+                            <li><a href="https://query.domains/zh-hans" target="_blank"><i class="fas fa-external-link-alt"></i>域名查询2</a></li>
+                            <li><a href="https://instantdomainsearch.com/?q=" target="_blank"><i class="fas fa-external-link-alt"></i>域名查询3</a></li>
+                            <li><a href="https://www.spaceship.com/" target="_blank"><i class="fas fa-external-link-alt"></i>域名注册1</a></li>
+                            <li><a href="https://porkbun.com/" target="_blank"><i class="fas fa-external-link-alt"></i>域名注册2</a></li>
+                            <li><a href="https://www.namecheap.com/" target="_blank"><i class="fas fa-external-link-alt"></i>域名注册3</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Category 3: Data Analysis -->
+                <div class="resource-card">
+                    <div class="card-header">
+                        <div class="category-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>数据分析工具</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="resource-list">
+                            <li><a href="https://github.com/" target="_blank"><i class="fas fa-external-link-alt"></i>GitHub</a></li>
+                            <li><a href="https://www.cloudflare.com/" target="_blank"><i class="fas fa-external-link-alt"></i>CloudFlare</a></li>
+                            <li><a href="https://vercel.com/" target="_blank"><i class="fas fa-external-link-alt"></i>Vercel</a></li>
+                            <li><a href="https://search.google.com/search-console/welcome" target="_blank"><i class="fas fa-external-link-alt"></i>Search Console</a></li>
+                            <li><a href="https://analytics.google.com/analytics/web/#/" target="_blank"><i class="fas fa-external-link-alt"></i>Google Analytics</a></li>
+                            <li><a href="https://www.bing.com/webmasters/about" target="_blank"><i class="fas fa-external-link-alt"></i>Bing Webmaster</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Category 4: Competitor Analysis -->
+                <div class="resource-card">
+                    <div class="card-header">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>竞品分析工具</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="resource-list">
+                            <li><a href="https://aitdk.com/" target="_blank"><i class="fas fa-external-link-alt"></i>AItdk流量分析</a></li>
+                            <li><a href="https://ahrefs.com/free-seo-tools" target="_blank"><i class="fas fa-external-link-alt"></i>Ahrefs外链分析</a></li>
+                            <li><a href="http://semrush.com/" target="_blank"><i class="fas fa-external-link-alt"></i>SEMRush关键词分析</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Category 5: Website Templates -->
+                <div class="resource-card">
+                    <div class="card-header">
+                        <div class="category-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>网站模板资源</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="resource-list">
+                            <li><a href="https://github.com/openRin/Rin" target="_blank"><i class="fas fa-external-link-alt"></i>CloudFlare模板</a></li>
+                            <li><a href="https://github.com/ixartz/Next-js-Boilerplate" target="_blank"><i class="fas fa-external-link-alt"></i>Next.js模板</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Category 6: Trends and News -->
+                <div class="resource-card">
+                    <div class="card-header">
+                        <div class="category-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3>趋势资讯</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="resource-list">
+                            <li><a href="https://liberating-doll-b8a.notion.site/Reddit-1a8e8aed91b18021839ecba8b74e530b" target="_blank"><i class="fas fa-external-link-alt"></i>Reddit社区资源</a></li>
+                            <li><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=zh-cn" target="_blank"><i class="fas fa-external-link-alt"></i>Google SEO指南</a></li>
+                            <li><a href="https://ahrefs.com/websites#trending" target="_blank"><i class="fas fa-external-link-alt"></i>热门网站榜单</a></li>
+                            <li><a href="https://docs.google.com/spreadsheets/d/1QOdqq9KbjQj1JZO43vc1pir2rnEEsMUXzTDATrOCn2k/edit?gid=0#gid=0" target="_blank"><i class="fas fa-external-link-alt"></i>AI视频工具</a></li>
+                            <li><a href="https://docs.google.com/spreadsheets/d/1eUni44pIURML2VWFFXKzNmm-WKuuam9_ynr5Fo_Q74M/edit?gid=83151001#gid=83151001" target="_blank"><i class="fas fa-external-link-alt"></i>独立开发者报告</a></li>
+                            <li><a href="https://www.500mrr.com/" target="_blank"><i class="fas fa-external-link-alt"></i>副业收入报告</a></li>
+                            <li><a href="https://news.ycombinator.com/item?id=42373343" target="_blank"><i class="fas fa-external-link-alt"></i>开发者收入分享</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="waves-bottom"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于Web航海导航</h3>
+                    <p>为开发者、网站建设者和数字营销专业人士提供优质的互联网资源导航服务。</p>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="RSS订阅"><i class="fas fa-rss"></i></a>
+                        <a href="#" title="邮箱订阅"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>网站地图</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">资源分类</a></li>
+                        <li><a href="#">最新工具</a></li>
+                        <li><a href="#">网站教程</a></li>
+                        <li><a href="#">SEO指南</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>资源分类</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">需求分析</a></li>
+                        <li><a href="#">域名服务</a></li>
+                        <li><a href="#">数据分析</a></li>
+                        <li><a href="#">网站模板</a></li>
+                        <li><a href="#">市场趋势</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+                    <p>反馈或建议：contact@web-nav.com</p>
+                    <p>商务合作：business@web-nav.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Web航海导航 | 互联网资源导航平台 | 隐私政策 | 使用条款</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 实际应用中这里可以实现分类切换功能
+                });
+            });
+            
+            // 模拟搜索功能
+            const searchInput = document.querySelector('.search-bar input');
+            const searchButton = document.querySelector('.search-bar button');
+            
+            searchButton.addEventListener('click', function() {
+                if(searchInput.value.trim() !== '') {
+                    alert(`正在搜索: ${searchInput.value}\n实际应用中这里会执行搜索功能`);
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if(e.key === 'Enter' && searchInput.value.trim() !== '') {
+                    alert(`正在搜索: ${searchInput.value}\n实际应用中这里会执行搜索功能`);
+                }
+            });
         });
-        group.style.display = hasVisible ? '' : 'none';
-      });
-    }
-  </script>
+    </script>
 </body>
-</html> 
+</html>
